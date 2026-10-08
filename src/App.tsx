@@ -73,7 +73,7 @@ export function App() {
   };
 
   return (
-    <div className="min-h-screen bg-white font-sans text-slate-800 flex flex-col selection:bg-[#b6272e] selection:text-white">
+    <div className="min-h-screen bg-white font-sans text-slate-800 flex flex-col selection:bg-blue-600 selection:text-white">
       {/* 1. Header & Navigation (Matching Screenshot 1 & 2) */}
       <Navbar
         onOpenQuote={() => scrollToSection('contact')}

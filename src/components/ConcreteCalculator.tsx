@@ -7,6 +7,7 @@ import {
   CircleDot, 
   Activity
 } from 'lucide-react';
+import { businessConfig } from '../config/businessInfo';
 
 interface ConcreteCalculatorProps {
   onTransferToQuote: (volume: number, recommendedMix: string, projectType: string) => void;
@@ -92,10 +93,10 @@ export const ConcreteCalculator: React.FC<ConcreteCalculatorProps> = ({ onTransf
   };
 
   return (
-    <section id="calculator" className="bg-[#f2eded] relative pb-20">
+    <section id="calculator" className="bg-[#f0f4f8] relative pb-20 pt-4">
       
-      {/* Red Banner Header with Rounded Bottom-Right Corner (Exact match to Screenshot 3) */}
-      <div className="bg-[#b6272e] rounded-br-[32px] max-w-5xl py-8 px-6 sm:px-12 md:px-16 text-white shadow-sm mb-12">
+      {/* Royal Blue Banner Header with Rounded Bottom-Right Corner */}
+      <div className="bg-[#1d4ed8] rounded-br-[32px] max-w-5xl py-8 px-6 sm:px-12 md:px-16 text-white shadow-md mb-12">
         <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-black tracking-tight">
           Concrete Calculator
         </h2>
@@ -103,16 +104,17 @@ export const ConcreteCalculator: React.FC<ConcreteCalculatorProps> = ({ onTransf
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Intro Text (Exact match to Screenshot 3) */}
+        {/* Intro Text */}
         <div className="max-w-3xl mb-12">
           <h3 className="font-heading text-2xl sm:text-3xl font-black text-slate-900 mb-4">
-            Estimate how much you'll need
+            Estimate how much concrete you'll need
           </h3>
           <p className="text-base text-slate-700 leading-relaxed font-normal">
             If you're wondering how much concrete your project will need, just use our concrete calculator. 
-            Input the relevant information and we'll give you a rough estimate from our calculator. 
-            Remember that we operate a policy of only charging you for what you use, so if you're slightly out, 
-            then it's no bother.
+            Input your dimensions below to calculate estimated volume in cubic metres. 
+            Because <strong>{businessConfig.company.name}</strong> operates volumetric mix-on-site trucks, 
+            <strong> you are only ever charged for what you pour</strong> — so if your estimate is slightly over or under, 
+            there's zero waste and zero penalty!
           </p>
         </div>
 
@@ -140,8 +142,8 @@ export const ConcreteCalculator: React.FC<ConcreteCalculatorProps> = ({ onTransf
                     onClick={() => setShape(tab.id as ShapeType)}
                     className={`flex items-center justify-center space-x-2 py-3.5 px-3 rounded-lg font-bold text-xs sm:text-sm transition-all border ${
                       isSelected 
-                        ? 'bg-[#b6272e] text-white border-[#b6272e] shadow-sm' 
-                        : 'bg-[#f2eded] text-slate-700 border-slate-200 hover:bg-slate-100'
+                        ? 'bg-[#1d4ed8] text-white border-[#1d4ed8] shadow-sm' 
+                        : 'bg-slate-50 text-slate-700 border-slate-200 hover:bg-slate-100'
                     }`}
                   >
                     <Icon className="w-4 h-4 shrink-0" />
@@ -158,7 +160,7 @@ export const ConcreteCalculator: React.FC<ConcreteCalculatorProps> = ({ onTransf
               <span className="block text-xs font-black uppercase tracking-wider text-slate-500 mb-1.5">
                 Unit of Measurement
               </span>
-              <div className="inline-flex bg-[#f2eded] p-1 rounded-md">
+              <div className="inline-flex bg-slate-100 p-1 rounded-md">
                 <button
                   type="button"
                   onClick={() => {
@@ -168,7 +170,7 @@ export const ConcreteCalculator: React.FC<ConcreteCalculatorProps> = ({ onTransf
                     setDepth(0.1);
                   }}
                   className={`px-4 py-1.5 rounded text-xs font-bold transition-all ${
-                    unit === 'meters' ? 'bg-[#b6272e] text-white' : 'text-slate-700 hover:text-black'
+                    unit === 'meters' ? 'bg-[#1d4ed8] text-white' : 'text-slate-700 hover:text-black'
                   }`}
                 >
                   Metres (m)
@@ -182,7 +184,7 @@ export const ConcreteCalculator: React.FC<ConcreteCalculatorProps> = ({ onTransf
                     setDepth(4);
                   }}
                   className={`px-4 py-1.5 rounded text-xs font-bold transition-all ${
-                    unit === 'feet' ? 'bg-[#b6272e] text-white' : 'text-slate-700 hover:text-black'
+                    unit === 'feet' ? 'bg-[#1d4ed8] text-white' : 'text-slate-700 hover:text-black'
                   }`}
                 >
                   Feet & Inches (ft & in)
@@ -200,7 +202,7 @@ export const ConcreteCalculator: React.FC<ConcreteCalculatorProps> = ({ onTransf
                 className={`inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-md border text-xs font-bold transition-all ${
                   includeBuffer 
                     ? 'bg-emerald-50 text-emerald-800 border-emerald-300' 
-                    : 'bg-[#f2eded] text-slate-600 border-slate-300'
+                    : 'bg-slate-100 text-slate-600 border-slate-300'
                 }`}
               >
                 <span className={`w-4 h-4 rounded-full flex items-center justify-center ${includeBuffer ? 'bg-emerald-600 text-white' : 'bg-slate-300'}`}>
@@ -225,7 +227,7 @@ export const ConcreteCalculator: React.FC<ConcreteCalculatorProps> = ({ onTransf
                     step="0.1"
                     value={length}
                     onChange={(e) => setLength(parseFloat(e.target.value) || 0)}
-                    className="w-full bg-[#f8f9fa] border border-slate-300 rounded-lg px-4 py-3 text-slate-900 font-bold focus:outline-none focus:border-[#b6272e] focus:bg-white"
+                    className="w-full bg-[#f8f9fa] border border-slate-300 rounded-lg px-4 py-3 text-slate-900 font-bold focus:outline-none focus:border-[#1d4ed8] focus:bg-white"
                   />
                 </div>
                 <div>
@@ -238,7 +240,7 @@ export const ConcreteCalculator: React.FC<ConcreteCalculatorProps> = ({ onTransf
                     step="0.1"
                     value={width}
                     onChange={(e) => setWidth(parseFloat(e.target.value) || 0)}
-                    className="w-full bg-[#f8f9fa] border border-slate-300 rounded-lg px-4 py-3 text-slate-900 font-bold focus:outline-none focus:border-[#b6272e] focus:bg-white"
+                    className="w-full bg-[#f8f9fa] border border-slate-300 rounded-lg px-4 py-3 text-slate-900 font-bold focus:outline-none focus:border-[#1d4ed8] focus:bg-white"
                   />
                 </div>
                 <div>
@@ -251,7 +253,7 @@ export const ConcreteCalculator: React.FC<ConcreteCalculatorProps> = ({ onTransf
                     step={unit === 'meters' ? '0.01' : '0.5'}
                     value={depth}
                     onChange={(e) => setDepth(parseFloat(e.target.value) || 0)}
-                    className="w-full bg-[#f8f9fa] border border-slate-300 rounded-lg px-4 py-3 text-slate-900 font-bold focus:outline-none focus:border-[#b6272e] focus:bg-white"
+                    className="w-full bg-[#f8f9fa] border border-slate-300 rounded-lg px-4 py-3 text-slate-900 font-bold focus:outline-none focus:border-[#1d4ed8] focus:bg-white"
                   />
                 </div>
               </div>
@@ -269,7 +271,7 @@ export const ConcreteCalculator: React.FC<ConcreteCalculatorProps> = ({ onTransf
                     step="0.05"
                     value={diameter}
                     onChange={(e) => setDiameter(parseFloat(e.target.value) || 0)}
-                    className="w-full bg-[#f8f9fa] border border-slate-300 rounded-lg px-4 py-3 text-slate-900 font-bold focus:outline-none focus:border-[#b6272e] focus:bg-white"
+                    className="w-full bg-[#f8f9fa] border border-slate-300 rounded-lg px-4 py-3 text-slate-900 font-bold focus:outline-none focus:border-[#1d4ed8] focus:bg-white"
                   />
                 </div>
                 <div>
@@ -282,7 +284,7 @@ export const ConcreteCalculator: React.FC<ConcreteCalculatorProps> = ({ onTransf
                     step="0.1"
                     value={columnDepth}
                     onChange={(e) => setColumnDepth(parseFloat(e.target.value) || 0)}
-                    className="w-full bg-[#f8f9fa] border border-slate-300 rounded-lg px-4 py-3 text-slate-900 font-bold focus:outline-none focus:border-[#b6272e] focus:bg-white"
+                    className="w-full bg-[#f8f9fa] border border-slate-300 rounded-lg px-4 py-3 text-slate-900 font-bold focus:outline-none focus:border-[#1d4ed8] focus:bg-white"
                   />
                 </div>
                 <div>
@@ -294,7 +296,7 @@ export const ConcreteCalculator: React.FC<ConcreteCalculatorProps> = ({ onTransf
                     type="number"
                     value={numberOfColumns}
                     onChange={(e) => setNumberOfColumns(parseInt(e.target.value, 10) || 1)}
-                    className="w-full bg-[#f8f9fa] border border-slate-300 rounded-lg px-4 py-3 text-slate-900 font-bold focus:outline-none focus:border-[#b6272e] focus:bg-white"
+                    className="w-full bg-[#f8f9fa] border border-slate-300 rounded-lg px-4 py-3 text-slate-900 font-bold focus:outline-none focus:border-[#1d4ed8] focus:bg-white"
                   />
                 </div>
               </div>
@@ -351,14 +353,14 @@ export const ConcreteCalculator: React.FC<ConcreteCalculatorProps> = ({ onTransf
 
           {/* Results Box */}
           <div className="mt-8 pt-8 border-t border-slate-200">
-            <div className="bg-[#f2eded] rounded-xl p-6 sm:p-8 flex flex-col md:flex-row items-center justify-between gap-6">
+            <div className="bg-slate-50 border border-slate-200 rounded-xl p-6 sm:p-8 flex flex-col md:flex-row items-center justify-between gap-6">
               
               <div>
                 <span className="text-xs font-black uppercase tracking-wider text-slate-500 block">
                   Estimated Concrete Required:
                 </span>
                 <div className="flex items-baseline space-x-2 mt-1">
-                  <span className="font-heading text-5xl sm:text-6xl font-black text-[#b6272e]">
+                  <span className="font-heading text-5xl sm:text-6xl font-black text-[#1d4ed8]">
                     {resultFormatted}
                   </span>
                   <span className="font-heading text-2xl font-black text-slate-900">
@@ -376,7 +378,7 @@ export const ConcreteCalculator: React.FC<ConcreteCalculatorProps> = ({ onTransf
                 <button
                   type="button"
                   onClick={() => onTransferToQuote(resultFormatted, 'C25 / RC25', getShapeName())}
-                  className="px-8 py-4 rounded-full bg-[#b6272e] hover:bg-[#991b1b] text-white font-black text-sm uppercase tracking-wider shadow transition-all flex items-center justify-center space-x-2"
+                  className="px-8 py-4 rounded-full bg-[#1d4ed8] hover:bg-[#1e40af] text-white font-black text-sm uppercase tracking-wider shadow transition-all flex items-center justify-center space-x-2"
                 >
                   <span>Book This Volume</span>
                   <ArrowRight className="w-4 h-4" />

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { FAQS } from '../data/mockData';
 import { ChevronDown, ChevronUp, Phone } from 'lucide-react';
+import { businessConfig } from '../config/businessInfo';
 
 export const FAQSection: React.FC = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
@@ -10,19 +11,19 @@ export const FAQSection: React.FC = () => {
   };
 
   return (
-    <section id="faq" className="py-20 bg-[#f2eded] text-slate-800 border-b border-slate-200">
+    <section id="faq" className="py-20 bg-[#f0f4f8] text-slate-800 border-b border-slate-200">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
         <div className="text-center mb-16">
-          <span className="text-xs font-black uppercase tracking-widest text-[#b6272e] block mb-2">
+          <span className="text-xs font-black uppercase tracking-widest text-[#1d4ed8] block mb-2">
             Any Questions?
           </span>
           <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 uppercase">
             Frequently Asked Questions
           </h2>
           <p className="text-base text-slate-600 mt-2">
-            Find quick answers to common questions about our concrete delivery, pricing, and pump hire.
+            Find quick answers to common questions about our volumetric concrete delivery, pricing, and ground line pump hire.
           </p>
         </div>
 
@@ -43,7 +44,7 @@ export const FAQSection: React.FC = () => {
                   <span className="font-heading text-base sm:text-lg font-bold text-slate-900">
                     {faq.q}
                   </span>
-                  <div className={`w-8 h-8 rounded-full flex items-center justify-center shrink-0 transition-colors ${isOpen ? 'bg-[#b6272e] text-white' : 'bg-[#f2eded] text-slate-600'}`}>
+                  <div className={`w-8 h-8 rounded-full flex items-center justify-center shrink-0 transition-colors ${isOpen ? 'bg-[#1d4ed8] text-white' : 'bg-slate-100 text-slate-600'}`}>
                     {isOpen ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
                   </div>
                 </button>
@@ -58,17 +59,17 @@ export const FAQSection: React.FC = () => {
           })}
         </div>
 
-        <div className="mt-12 bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 text-center flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div className="mt-12 bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 text-center flex flex-col sm:flex-row items-center justify-between gap-4 shadow-sm">
           <div className="text-left">
             <h4 className="font-bold text-slate-900 text-base">Have a question not listed here?</h4>
-            <p className="text-xs text-slate-500 mt-0.5">Call our experienced dispatch team today.</p>
+            <p className="text-xs text-slate-500 mt-0.5">Call our experienced dispatch team in Wolverhampton today.</p>
           </div>
           <a
-            href="tel:08081607324"
-            className="shrink-0 inline-flex items-center space-x-2 px-6 py-3 rounded-full bg-[#b6272e] text-white font-bold text-xs uppercase"
+            href={`tel:${businessConfig.contact.primaryPhone}`}
+            className="shrink-0 inline-flex items-center space-x-2 px-6 py-3 rounded-full bg-[#1d4ed8] hover:bg-[#1e40af] text-white font-bold text-xs uppercase shadow transition-all"
           >
             <Phone className="w-4 h-4" />
-            <span>0808 160 7324</span>
+            <span>{businessConfig.contact.primaryPhoneDisplay}</span>
           </a>
         </div>
 

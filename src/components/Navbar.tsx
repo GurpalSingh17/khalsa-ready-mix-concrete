@@ -86,34 +86,32 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenQuote, onScrollToCalculato
       </div>
 
       {/* Main White Navbar */}
-      <div className="max-w-[1920px] mx-auto px-4 sm:px-8 py-4 sm:py-5 flex items-center justify-between border-b border-slate-200">
+      <div className="max-w-[1920px] mx-auto px-4 sm:px-6 lg:px-8 py-3.5 sm:py-4 flex items-center justify-between gap-4 border-b border-slate-200">
         
         {/* Brand Logo */}
-        <a href="#" className="flex items-center space-x-3 group shrink-0">
+        <a href="#" className="flex items-center space-x-2.5 group shrink-0">
           <div className="flex items-center">
             {/* Bold Stylized Trade Monogram & Logotype in Royal Blue */}
-            <div className="w-11 h-11 bg-[#1d4ed8] rounded-md flex items-center justify-center text-white font-black text-2xl shadow-sm mr-2.5">
+            <div className="w-10 h-10 sm:w-11 sm:h-11 bg-[#1d4ed8] rounded-md flex items-center justify-center text-white font-black text-xl sm:text-2xl shadow-sm mr-2 shrink-0">
               K
             </div>
             <div>
-              <div className="flex flex-wrap items-baseline space-x-1.5 font-heading">
-                <span className="text-xl sm:text-2xl 2xl:text-3xl font-black text-[#0f172a] tracking-tight">KHALSA</span>
-                <span className="text-xl sm:text-2xl 2xl:text-3xl font-black text-[#1d4ed8] tracking-tight">READY MIX CONCRETE</span>
+              <div className="flex flex-wrap items-baseline gap-1 font-heading">
+                <span className="text-lg sm:text-xl 2xl:text-2xl font-black text-[#0f172a] tracking-tight">KHALSA</span>
+                <span className="text-lg sm:text-xl 2xl:text-2xl font-black text-[#1d4ed8] tracking-tight">READY MIX CONCRETE</span>
               </div>
               <span className="block text-[10px] font-extrabold uppercase tracking-widest text-slate-500 -mt-0.5">
-                Wolverhampton • 15 Monmore Rd • West Midlands
+                Wolverhampton • 15 Monmore Rd
               </span>
             </div>
           </div>
         </a>
 
         {/* Primary Desktop Navigation Links */}
-        <nav className="hidden xl:flex items-center space-x-6 text-[13px] 2xl:text-[14px] font-bold text-slate-800">
+        <nav className="hidden 2xl:flex items-center gap-5 text-sm font-bold text-slate-800 whitespace-nowrap shrink-0">
           <a href="#services" className="hover:text-[#1d4ed8] transition-colors">Domestic Concrete</a>
           <a href="#services" className="hover:text-[#1d4ed8] transition-colors">Commercial & Groundworks</a>
-          <a href="#pumping" className="hover:text-[#1d4ed8] transition-colors flex items-center space-x-1">
-            <span>Ground Line Pumps (80m+)</span>
-          </a>
+          <a href="#pumping" className="hover:text-[#1d4ed8] transition-colors">Ground Line Pumps (80m+)</a>
           <a href="#services" className="hover:text-[#1d4ed8] transition-colors">Floor Screed</a>
           <a href="#calculator" onClick={onScrollToCalculator} className="hover:text-[#1d4ed8] transition-colors">Concrete Calculator</a>
           <a href="#areas" className="hover:text-[#1d4ed8] transition-colors">Areas Covered</a>
@@ -126,8 +124,22 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenQuote, onScrollToCalculato
           </button>
         </nav>
 
+        {/* Mid-screen compact nav for standard laptops (1024px - 1535px) */}
+        <nav className="hidden lg:flex 2xl:hidden items-center gap-3 text-xs font-bold text-slate-800 whitespace-nowrap shrink-0">
+          <a href="#services" className="hover:text-[#1d4ed8] transition-colors">Services</a>
+          <a href="#pumping" className="hover:text-[#1d4ed8] transition-colors">Pump Hire</a>
+          <a href="#calculator" onClick={onScrollToCalculator} className="hover:text-[#1d4ed8] transition-colors">Calculator</a>
+          <a href="#areas" className="hover:text-[#1d4ed8] transition-colors">Areas</a>
+          <button
+            onClick={onOpenQuote}
+            className="px-3 py-1.5 rounded-full bg-[#1d4ed8] text-white hover:bg-[#1e40af] text-xs font-black uppercase tracking-wider shadow-sm transition-all"
+          >
+            Free Quote
+          </button>
+        </nav>
+
         {/* Mobile Action Buttons */}
-        <div className="flex xl:hidden items-center space-x-2">
+        <div className="flex lg:hidden items-center space-x-2">
           {businessConfig.whatsapp.enabled && (
             <a
               href={whatsappUrl}
@@ -159,7 +171,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenQuote, onScrollToCalculato
 
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="xl:hidden bg-[#1e3a8a] text-white px-6 py-6 space-y-4 border-t border-blue-900 shadow-xl">
+        <div className="lg:hidden bg-[#1e3a8a] text-white px-6 py-6 space-y-4 border-t border-blue-900 shadow-xl">
           <div className="flex flex-col space-y-3 font-bold text-sm">
             <a href="#services" onClick={() => setMobileMenuOpen(false)} className="hover:text-blue-200">Domestic Concrete</a>
             <a href="#services" onClick={() => setMobileMenuOpen(false)} className="hover:text-blue-200">Commercial & Groundworks</a>

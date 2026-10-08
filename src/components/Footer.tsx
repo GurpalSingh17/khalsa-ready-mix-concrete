@@ -63,14 +63,12 @@ export const Footer: React.FC<FooterProps> = ({ onScrollToCalculator, onOpenQuot
           
           {/* Brand Info */}
           <div className="lg:col-span-2 space-y-4">
-            <div className="flex items-center space-x-2.5">
-              <div className="w-10 h-10 bg-[#1d4ed8] rounded flex items-center justify-center text-white font-black text-xl">
-                K
-              </div>
-              <div className="font-heading">
-                <span className="text-2xl font-black text-white">KHALSA </span>
-                <span className="text-2xl font-black text-[#60a5fa]">READY MIX CONCRETE</span>
-              </div>
+            <div>
+              <img
+                src="/images/khalsa-logo-footer.png"
+                alt="Khalsa Ready Mix Concrete"
+                className="h-12 w-auto object-contain mb-2"
+              />
             </div>
 
             <p className="text-slate-400 text-xs sm:text-sm leading-relaxed max-w-sm">

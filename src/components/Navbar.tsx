@@ -89,22 +89,12 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenQuote, onScrollToCalculato
       <div className="max-w-[1920px] mx-auto px-4 sm:px-6 lg:px-8 py-3.5 sm:py-4 flex items-center justify-between gap-4 border-b border-slate-200">
         
         {/* Brand Logo */}
-        <a href="#" className="flex items-center space-x-2.5 group shrink-0">
-          <div className="flex items-center">
-            {/* Bold Stylized Trade Monogram & Logotype in Royal Blue */}
-            <div className="w-10 h-10 sm:w-11 sm:h-11 bg-[#1d4ed8] rounded-md flex items-center justify-center text-white font-black text-xl sm:text-2xl shadow-sm mr-2 shrink-0">
-              K
-            </div>
-            <div>
-              <div className="flex flex-wrap items-baseline gap-1 font-heading">
-                <span className="text-lg sm:text-xl 2xl:text-2xl font-black text-[#0f172a] tracking-tight">KHALSA</span>
-                <span className="text-lg sm:text-xl 2xl:text-2xl font-black text-[#1d4ed8] tracking-tight">READY MIX CONCRETE</span>
-              </div>
-              <span className="block text-[10px] font-extrabold uppercase tracking-widest text-slate-500 -mt-0.5">
-                Wolverhampton • 15 Monmore Rd
-              </span>
-            </div>
-          </div>
+        <a href="#" className="flex items-center group shrink-0">
+          <img
+            src="/images/khalsa-logo-transparent.png"
+            alt="Khalsa Ready Mix Concrete"
+            className="h-10 sm:h-12 2xl:h-14 w-auto object-contain hover:opacity-95 transition-opacity"
+          />
         </a>
 
         {/* Primary Desktop Navigation Links */}
